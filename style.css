@@ -1,0 +1,319 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    background-color: #353535;
+    max-width: 1440px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 60px;
+    padding: 20px;
+}
+
+.nameGame {
+    background-color: black;
+    color: rgb(255, 255, 255);
+    padding: 15px 30px;
+    border-radius: 10px;
+    animation: filterColor 1.6s linear infinite;
+}
+
+@keyframes filterColor {
+    from {
+       
+        filter: drop-shadow(0 0px 0px rgb(155, 65, 65));
+    }
+    to {
+        text-shadow: 0 4px 4px red;
+        filter: drop-shadow(0 4px 4px red);
+    }
+}
+
+.bg-counts {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+}
+
+.nameCounts {
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.count {
+    color: red;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+form {
+    background-color: rgb(33, 33, 33);
+    max-width: 350px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+    padding: 20px;
+}
+
+.inputName {
+    font-size: 20px;
+    outline: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.btn {
+    cursor: pointer;
+    background-color: rgb(0, 160, 0);
+    color: #fff;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    transition: all .3s;
+    background-color: rgb(1, 192, 1);
+}
+
+.field {
+    position: relative;
+    max-width: 1200px;
+    width: 100%;
+    padding: 40px 10px;
+    background-color: rgb(0, 0, 0);
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    border: 30px solid rgb(37, 37, 37);
+    perspective: 1000px;
+}
+
+.field.active {
+    display: flex;
+}
+
+.card_inner {
+    border-radius: 10px;
+    transform: rotateY(0deg);
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all .6s;
+    max-width: 200px;
+    width: 100%;
+    height: 230px;
+}
+
+.card_inner.rotates {
+    transform: rotateY(180deg);
+}
+
+.card_inner.rotateS {
+    transform: rotate(0deg);
+}
+
+.card {
+    backface-visibility: hidden;
+    position: absolute;
+    z-index: 100;
+    cursor: pointer;
+    background-color: rgb(25, 121, 181);
+    max-width: 200px;
+    width: 100%;
+    height: 230px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 66px;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+.card:hover {
+    filter: drop-shadow(0 4px 4px rgb(254, 254, 254));
+}
+
+.back {
+    transform: rotateY(180deg);
+    background-image: linear-gradient(to top,
+     rgb(0, 0, 0), #ffffff, rgb(190, 190, 190));
+    color: #000000;
+    backface-visibility: hidden;
+    filter: drop-shadow(0 4px 4px rgb(7, 222, 32));
+}
+
+.bg-winer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.bg-winer.active {
+    display: flex;
+}
+
+.box-winer {
+    position: relative;
+    background-image: linear-gradient(to left,
+    black, #fff, black);
+    max-width: 400px;
+    width: 100%;
+    /*height: 200px;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 20px;
+    border-top-left-radius: 90px;
+    border-bottom-right-radius: 90px;
+    border: 7px solid rgb(223, 145, 0);
+    padding: 30px 10px;
+}
+
+.textWiner {
+    color: rgb(235, 0, 0);
+    font-size: 44px;
+    font-weight: 600;
+    text-align: center;
+    animation: scaltext 1.3s linear;
+}
+
+@keyframes scaltext {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.btnClosed {
+    background-color: rgb(2, 137, 18);
+    color: #fff;
+    cursor: pointer;
+    padding: 5px 15px;
+    font-size: 22px;
+    border: none;
+    border-radius: 5px;
+}
+
+.btnClosed:hover {
+    transition: all .3s;
+    background-color: rgb(5, 170, 5);
+}
+
+@media (max-width: 768px) {
+
+    .card_inner {
+        max-width: 120px;
+        width: 100%;
+        height: 150px;
+        border-radius: 10px;
+    }
+
+    .card {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media (max-width: 511px) {
+
+    .card_inner {
+        max-width: 75px;
+        width: 100%;
+        height: 100px;
+        border-radius: 10px;
+    }
+
+    .card {
+        width: 100%;
+        height: 100%;
+    }
+
+    .textWiner {
+        font-size: 30px;
+    }
+
+    .btnClosed {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 425px) {
+
+    .field {
+        gap: 7px;
+    }
+
+    .card_inner {
+        max-width: 70px;
+        width: 100%;
+        height: 95px;
+        border-radius: 10px;
+    }
+
+    .card {
+        width: 100%;
+        height: 100%;
+    }
+
+    .textWiner {
+        font-size: 18px;
+    }
+
+    .btnClosed {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 375px) {
+
+    .field {
+        gap: 7px;
+    }
+
+    .card_inner {
+        max-width: 70px;
+        width: 100%;
+        height: 95px;
+        border-radius: 10px;
+    }
+
+    .card {
+        width: 100%;
+        height: 100%;
+    }
+}
